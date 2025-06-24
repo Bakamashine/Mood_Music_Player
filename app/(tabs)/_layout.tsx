@@ -1,5 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
+import { TouchableOpacity } from "react-native";
 
 export default function TabLayout() {
   const app_name = "Your Daily Mood";
@@ -18,11 +19,23 @@ export default function TabLayout() {
       <Tabs.Screen
         name="play"
         options={{
-          title: app_name,
+          title: "Play",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="play" color={color} />
           ),
-          headerTitleAlign: 'center'
+          headerTitle: app_name,
+          headerTitleAlign: "center",
+          headerBackButtonDisplayMode: "minimal",
+          headerLeft: () => (
+            <TouchableOpacity
+              style={{
+                marginLeft: 20,
+              }}
+              onPress={() => router.back()}
+            >
+              <FontAwesome name="arrow-left" size={24} color="black" />
+            </TouchableOpacity>
+          ),
         }}
       />
     </Tabs>

@@ -1,4 +1,3 @@
-import { size_slider } from "@/app/(tabs)";
 import { Image, StyleSheet, View } from "react-native";
 const SlideItem = () => (
     <View>
@@ -9,5 +8,8 @@ const SlideItem = () => (
 export default SlideItem;
 
 const styles = StyleSheet.create({
-    img: size_slider
+    img: {
+        width: '100%',
+        height: 258
+    }
 })
